@@ -3,10 +3,12 @@ from tqdm import tqdm
 import json
 import pandas as pd
 import os
+from dotenv import load_dotenv
 
 # --- Config ---
 # replace this later with config/env handling
-API_KEY = "AIzaSyBL4g6pvIeqMCGKecIfY-W7Aq5eTLQCEuo"
+load_dotenv()
+API_KEY = os.getenv("YOUTUBE_API_KEY")
 # fliptop channel id. This is generated with the help of a third party tool
 CHANNEL_ID = "UCBdHwFIE4AJWSa3Wxdu7bAQ"
 
