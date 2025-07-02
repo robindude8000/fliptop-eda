@@ -70,7 +70,7 @@ for i in range(0, len(video_ids), 50):
             "video_id": item["id"],
             "title": snippet["title"],
             "description": snippet["description"],
-            "publishedAt": snippet["publishedAt"],
+            "published_at": snippet["publishedAt"],
             "view_count": stats["viewCount"],
             "like_count": stats["likeCount"],
             "comment_count": stats["commentCount"]
