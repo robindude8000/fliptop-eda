@@ -25,9 +25,9 @@ This is an exploratory data analysis (EDA) project focused on the **FlipTop Batt
 - **Python**
 - **Pandas**
 - **YouTube API**
-- **Matplotlib / Seaborn / Plotly**
 - **Jupyter Notebooks**
 - **Git & GitHub**
+- **Matplotlib / Seaborn / Plotly**
 
 ---
 
