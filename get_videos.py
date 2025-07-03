@@ -1,5 +1,5 @@
 from googleapiclient.discovery import build
-from tqdm import tqdm
+from isodate import parse_duration
 import json
 import pandas as pd
 import os
@@ -58,13 +58,14 @@ for i in range(0, len(video_ids), 50):
     batch_ids = video_ids[i:i+50]
 
     vid_response = youtube.videos().list(
-        part="snippet,statistics",
+        part="snippet,statistics,contentDetails",
         id=",".join(batch_ids)
     ).execute()
 
     for item in vid_response["items"]:
         stats = item["statistics"]
         snippet = item["snippet"]
+        content = item["contentDetails"]
 
         videos.append({
             "video_id": item["id"],
@@ -73,7 +74,8 @@ for i in range(0, len(video_ids), 50):
             "published_at": snippet["publishedAt"],
             "view_count": stats["viewCount"],
             "like_count": stats["likeCount"],
-            "comment_count": stats["commentCount"]
+            "comment_count": stats["commentCount"],
+            "video_duration": parse_duration(content["duration"]).total_seconds()
         })
 
 '''
